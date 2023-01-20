@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button (click)="menuClick()"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Απογραφή</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+    (focusout)="searchItem()"
+    (search)="searchItem()"
+    (keyup.enter)="searchItem()"
+    (ionClear)="onCancel()"
+    (focusin)="onFocus()"
+    #input
+    type="number"
+    showCancelButton="focus"
+    [(ngModel)]="invService.searchString"
+  ></ion-searchbar>
+  <ion-searchbar
+    (focusout)="searchItem()"
+    (search)="searchItem()"
+    (ionClear)="onCancel()"
+    (focusin)="onFocus()"
+    (keyup.enter)="searchItem()"
+    #input2
+    showCancelButton="focus"
+    [(ngModel)]="invService.searchTextString"
+  ></ion-searchbar>
+
+  <h2 *ngIf="invService.results.length>0">Αποτελέσματα</h2>
+  <ion-grid>
+    <ion-row
+      (click)="selectItem(item)"
+      text-wrap
+      *ngFor="let item of invService.results; let nIndex = index"
+      [ngStyle]="{'background-color': item.mome==null? '#ffcccb' : (nIndex%2===0?'white':'#D3D3D3')}"
+    >
+      <ion-col size="4" size-md>
+        <p>{{ item.code }}</p>
+      </ion-col>
+      <ion-col size="8" size-md>
+        <p>{{ item.descr }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Συγχρονισμός</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-button expand="block" (click)="getItems()" style="margin-top: 60px">
+    Συγχρονισμός Ειδών
+  </ion-button>
+  <ion-button
+    expand="block"
+    (click)="getZonesFromApi()"
+    style="margin-top: 20px"
+  >
+    Συγχρονισμός Ζωνών
+  </ion-button>
+  <ion-button
+    expand="block"
+    (click)="getMomeFromApi()"
+    style="margin-top: 20px;margin-bottom:70px;"
+  >
+    Συγχρονισμός Μονάδων Μέτρησης
+  </ion-button>
+
+  <ion-label  >Server IP address</ion-label>
+  <ion-input [(ngModel)]="general.ipaddress"></ion-input>
+  <ion-button
+    expand="block"
+    (click)="db.updateIP(general.ipaddress)"
+  >
+    Ενημέρωση IP address
+  </ion-button>
+</ion-content>

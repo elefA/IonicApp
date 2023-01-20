@@ -1,0 +1,23 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button *ngIf="general.isSelected"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Αρχική</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- <ion-item style="margin-top:10%">
+    <ion-label>Χειριστής</ion-label>
+    <ion-select [(ngModel)]="general.selectedUser" interface="popover">
+      <ion-select-option  *ngFor="let user of users" >{{user}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+    <ion-button expand="block" (click)="selectUser()">
+      ΟΚ
+    </ion-button> -->
+
+</ion-content>

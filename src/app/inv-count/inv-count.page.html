@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Απογραφή</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item style="-top: 10%">
+    <ion-label>Ζώνη</ion-label>
+    <ion-select [(ngModel)]="selectedZoneDescr" interface="popover">
+      <ion-select-option *ngFor="let zone of general.zones"
+        ><div>{{zone.descr}}</div></ion-select-option
+      >
+    </ion-select>
+  </ion-item>
+  <ion-button (click)="checkZone()" expand="block"> ΟΚ </ion-button>
+</ion-content>

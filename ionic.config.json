@@ -1,0 +1,7 @@
+{
+  "name": "Magazi",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

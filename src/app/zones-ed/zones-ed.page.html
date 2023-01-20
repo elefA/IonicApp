@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ζώνες</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="general.zones.length>0">
+    <ion-title>Ζώνες προς απογραφή</ion-title>
+    <ion-list>
+      <ion-item-sliding *ngFor="let zone of general.zones">
+        <ion-item>
+          <ion-label>{{zone.descr}}</ion-label>
+        </ion-item>
+        <ion-item-options side="start">
+          <ion-item-option [disabled]="synchServ.clicked" (click)="sendZone(zone)">ΑΠΟΣΤΟΛΗ</ion-item-option>
+        </ion-item-options>
+        <ion-item-options side="end">
+          <ion-item-option (click)="lock(zone)">ΚΛΕΙΔΩΜΑ</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+  <div *ngIf="general.lockedZones.length>0">
+    <ion-title>Ολοκληρωμένες ή Ανενεργές</ion-title>
+    <ion-list>
+      <ion-item-sliding *ngFor="let zone of general.lockedZones">
+        <ion-item>
+          <ion-label>{{zone.descr}}</ion-label>
+        </ion-item>
+        <ion-item-options side="end" >
+          <ion-item-option (click)="unlock(zone)">ΞΕΚΛΕΙΔΩΜΑ</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <ion-button expand="block" (click)="getItems()" style="margin-top: 60px">
+    Συγχρονισμός Ειδών
+  </ion-button>
+  <ion-button
+    expand="block"
+    (click)="getZonesFromApi()"
+    style="margin-top: 20px"
+  >
+    Συγχρονισμός Ζωνών
+  </ion-button>
+  <ion-button
+    expand="block"
+    (click)="getMomeFromApi()"
+    style="margin-top: 20px;margin-bottom:70px;"
+  >
+    Συγχρονισμός Μονάδων Μέτρησης
+  </ion-button>
+
+  <ion-label  >Server IP address</ion-label>
+  <ion-input [(ngModel)]="general.ipaddress"></ion-input>
+  <ion-button
+    expand="block"
+    (click)="db.updateIP(general.ipaddress)"
+  >
+    Ενημέρωση IP address
+  </ion-button>
+</ion-content>
