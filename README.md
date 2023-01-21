@@ -1,7 +1,7 @@
 # IonicApp
 Mobile application for inventory count
 
-This application server a company to count their stock. The store was divided into zones and the items had different measurement units.
+This application facilitates a company to count their stock. The store was divided into zones and the items had different measurement units.
 
 The admin user first synchronised all mobiles with the server to fetch all products, meas. units and zones.
 
